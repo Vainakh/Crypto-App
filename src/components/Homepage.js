@@ -55,7 +55,7 @@ const Homepage = () => {
           <Link to='/news'>Show More</Link>
         </Title>
       </div>
-      <News simplified />
+      <News  simplified/>
     </>
   )
 };

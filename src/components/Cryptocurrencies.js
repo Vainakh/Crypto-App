@@ -6,6 +6,7 @@ import { Card, Row, Col, Input } from 'antd';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 
 const Cryptocurrencies = (props) => {
+  const {simplified} = props;
   const  count = props.simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [ cryptos, setCryptos ] = useState([]);
@@ -21,11 +22,11 @@ const Cryptocurrencies = (props) => {
 
   return (
     <>
-      <div className='search-crypto'>
+      {!simplified && (<div className='search-crypto'>
         <input
           placeholder='Search Cryptocurrency'
           onChange={(event) => setSearchTerm(event.target.value)}/>
-      </div>
+      </div>)}
       <Row gutter={[32, 32]} className='crypto-card-containers'>
         {cryptos?.map(currency => (
           <Col xz={24} sm={12} lg={6} className='crypto-card' key={currency.id}>

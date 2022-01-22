@@ -1,6 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Routes, Route, Link } from 'react-router-dom';
+import React,{ useParams } from 'react';
+import { BrowserRouter as Switch, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   Navbar,
@@ -26,18 +27,18 @@ const App = () => {
               <Route exact path='/'>
                 <Homepage />
               </Route>
-              <Route exact path='/exchanges'>
-                <Exchanges />
-              </Route>
-              <Route exact path='/cryptocurrencies'>
-                <Cryptocurrencies />
-              </Route>
-              <Route exact path='/crypto/:coinId'>
-                <CryptoDetails />
-              </Route>
-              <Route exact path='/news'>
-                <News />
-              </Route>
+                <Route exact path='/exchanges'>
+                  <Exchanges />
+                </Route>
+                <Route exact path='/cryptocurrencies'>
+                  <Cryptocurrencies />
+                </Route>
+                <Route exact path='/crypto/:coinId'>
+                  <CryptoDetails />
+                </Route>
+                <Route exact path='/news'>
+                  <News />
+                </Route>
               </Switch>
             </div>
           </Layout>
@@ -59,7 +60,7 @@ const App = () => {
           </Space>
 
         </div>
-        </div>
+      </div>
     </div>
   )
 };
